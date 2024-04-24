@@ -63,7 +63,7 @@ if __name__ == '__main__':
 
     
     path = 'checkpoint_path/ModelParams.pkl'
-    cfg.merge_from_file('/home/xmpu215/215/emission/GNNAK/GNNAsKernel-main/train/configs/plqy.yaml')
+    cfg.merge_from_file('SubOptGraph/configs/plqy.yaml')
     cfg = update_cfg(cfg,None)
     snapshot_path = cfg.model.path
     
@@ -73,7 +73,7 @@ if __name__ == '__main__':
             param.requires_grad_(False)
 
 
-    model.output_decoder = nn.Sequential(MLP(181, 128, nlayer=2, with_final_activation=False),MLP(128, 1, nlayer=2, with_final_activation=False))
+    model.output_decoder = nn.Sequential(MLP(181, 128, nlayer=2, with_final_activation=False),MLP(128, 1, nlayer=2, with_final_activation=False))  # changes this decoder layer for different tasks
     model = model.to(cfg.device)
 
     run_transfer(cfg, create_dataset, model, train, test,snapshot_path=snapshot_path,mean=float(mean),std=float(std))
