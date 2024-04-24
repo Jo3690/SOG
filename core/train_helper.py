@@ -145,7 +145,7 @@ def run(cfg, create_dataset, create_model, train, test, snapshot_path='path/trai
     writer, logger, config_string = config_logger(cfg)
 
     
-    train_dataset, val_dataset, test_dataset = create_dataset(cfg)
+    train_dataset, val_dataset = create_dataset(cfg)
    
     
     
@@ -158,7 +158,7 @@ def run(cfg, create_dataset, create_model, train, test, snapshot_path='path/trai
     setup_seed(42)
     train_loader = DataLoader(train_dataset, cfg.train.batch_size, shuffle=True, num_workers=cfg.num_workers,follow_batch=['edge_attr'])
     val_loader = DataLoader(val_dataset,  cfg.train.batch_size//cfg.sampling.batch_factor, shuffle=False, num_workers=cfg.num_workers,follow_batch=['edge_attr'])
-    test_loader = DataLoader(test_dataset, cfg.train.batch_size//cfg.sampling.batch_factor, shuffle=False, num_workers=cfg.num_workers,follow_batch=['edge_attr'])
+   # test_loader = DataLoader(test_dataset, cfg.train.batch_size//cfg.sampling.batch_factor, shuffle=False, num_workers=cfg.num_workers,follow_batch=['edge_attr'])
     test_perfs = []
     vali_perfs = []
     
