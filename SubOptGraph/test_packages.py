@@ -219,15 +219,15 @@ def create_dataset(cfg):
     root = 'path'  
     train_dataset = TADF(root, subset=0, split='train', transform=transform,percentage=0.80)
     val_dataset = TADF(root, subset=0, split='val', transform=transform_eval,percentage=0.80) 
-    test_dataset = TADF(root, subset=0, split='test', transform=transform_eval,percentage=0.80)   
+ 
 
 
     train_dataset = [x for x in train_dataset] 
     val_dataset = [x for x in val_dataset] 
-    test_dataset = [x for x in test_dataset] 
 
 
-    return train_dataset, val_dataset, test_dataset
+
+    return train_dataset, val_dataset
 
 def create_model(cfg):
     model = GNNAsKernel(nfeat_node=37, nfeat_edge=6,
@@ -294,17 +294,3 @@ def test(loader, model, evaluator, device,std):
 
     return loss_all, error/len(loader.dataset), model_output, y
 
-"""@torch.no_grad()
-def test(loader, model, evaluator, device,):
-    model.eval()   
-    model_output = []
-    for data in loader:
-        data = data.to(device)
-        
-        output = model(data).reshape(-1)
-        model_output.extend(output.tolist())                                       
-        
-
-    return model_output
-
-"""
