@@ -96,9 +96,6 @@ class Emitter(InMemoryDataset):
         items = [line.strip().split('\t') for line in f]
         number = len(items)
 
-        random.seed(10)
-        random.shuffle(items)
-
         pbar = tqdm(total=number)
         pbar.set_description(f'Processing {self.split} dataset')
         data_list = []
@@ -230,8 +227,6 @@ def create_dataset(cfg):
     train_dataset = [x for x in train_dataset] 
     val_dataset = [x for x in val_dataset] 
     test_dataset = [x for x in test_dataset] 
-
-
 
     return train_dataset, val_dataset, test_dataset
 
