@@ -1,0 +1,15 @@
+dataset: fwhm
+model:
+  num_layers: 5
+  mini_layers: 3
+  mlp_layers: 3
+  embs: (0, 1, 2)
+  hops_dim: 16
+  embs_combine_mode: 'concat'
+  pool: add
+subgraph:
+  hops: 3
+  online: True
+train:
+  epochs: 100
+  batch_size: 32

@@ -1,0 +1,16 @@
+dataset: plqy
+model:
+  num_layers: 3
+  mini_layers: 4
+  mlp_layers: 3
+  embs: (0, 1, 2)
+  embs_combine_mode: 'concat'
+  pool: add
+  state_dim: 5
+subgraph:
+  hops: 3
+  online: True
+train:
+  epochs: 100
+  batch_size: 128
+  runs: 1

@@ -1,0 +1,14 @@
+dataset: emission
+model:
+  num_layers: 5
+  mini_layers: 3
+  mlp_layers: 3
+  embs: (0, 1, 2)
+  embs_combine_mode: 'concat'
+  pool: add
+subgraph:
+  hops: 3
+  online: True
+train:
+  epochs: 500
+  batch_size: 128
