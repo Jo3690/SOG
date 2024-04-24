@@ -31,7 +31,7 @@ from torch_geometric.loader import DataLoader
 from sklearn.metrics import r2_score,mean_squared_error,mean_absolute_error
 from transfer_package import create_model,TADF,test,train
 
-path = '/home/xmpu215/215/emission/GNNAK/GNNAsKernel-main/train/plqy_logs/6.20_0.80/99ModelParams.pkl'
+path = 'path' #path used for the validation model parameter
 
 
 
@@ -47,10 +47,9 @@ def create_dataset(cfg):
                                         random_init=False)
 
     
-    root = '/data/abs'  
+    root = '/data/abs'  #data path 
 
     test_dataset = TADF(root, subset=0, split='val', file_name='test_list.txt',test=False,transform=transform_eval,percentage=0.0,mean=mean,std=std) 
-
 
     
     test_dataset = [x for x in test_dataset] 
@@ -60,7 +59,7 @@ def create_dataset(cfg):
     return  test_loader
 
 
-data = [line.strip().split('\t') for line in open("path/absorption.txt").readlines()]
+data = [line.strip().split('\t') for line in open("path/absorption.txt").readlines()]  
 
 y = [float(i[2]) for i in data]
 Y = np.array([i for i in y])
