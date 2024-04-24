@@ -7,18 +7,15 @@ from rdkit import Chem
 from rdkit.Chem import ChemicalFeatures
 from rdkit import RDConfig
 
-
-
-
 PeriodicTable = Chem.GetPeriodicTable()
 try:
     fdefName = os.path.join(RDConfig.RDDataDir,'BaseFeatures.fdef')
     factory = ChemicalFeatures.BuildFeatureFactory(fdefName)
 except:
-    fdefName = os.path.join('/home/xmpu215/anaconda3/envs/pytorch/share/RDKit/Data','BaseFeatures.fdef')  # 这里改成自己的路径
+    fdefName = os.path.join('path/envs/pytorch/share/RDKit/Data','BaseFeatures.fdef')  # 
     factory = ChemicalFeatures.BuildFeatureFactory(fdefName)
 #possible_atom_type = ['H', 'B', 'C', 'N', 'O',  'F', 'Na','Si', 'P', 'S', 'Cl','Ar', 'K','Ge', 'Se', 'Br', 'Sn','Te', 'I', 'Cs',] 
-possible_atom_type = ['C', 'N','O','S','H','F','Na','Cl','Br','I','Se','Te','Si','P','B','Sn','Ge',] # for chemfluo absorption
+possible_atom_type = ['C', 'N','O','S','H','F','Na','Cl','Br','I','Se','Te','Si','P','B','Sn','Ge',] # 
 possible_hybridization = ['S','SP','SP2', 'SP3',  'SP3D','SP3D2','UNSPECIFIED'] # 'UNSPECIFIED'
 of_formal_charge = [-4,-3,-2,-1,0,1,2,3,4] #
 of_H = [0,1,2,3,4] #
