@@ -31,28 +31,28 @@ def func(pred):
     return pred.index(max(pred))
 
 def train(model, train_loader, device, optimizer):
-    model.train()  #train()的作用是启用Batch Normalization和 Dropout，并非函数的嵌套
+    model.train()  
     loss_all = 0
     for d in train_loader:
         data = d[0]
         data_sol = d[1]
-        data = data.to(device)   #配置cuda，将数据配置到GPU上，加速运行
+        data = data.to(device)   #
         data_sol = data_sol.to(device)
         
-        #optimizer.zero_grad()  #使用优化器，梯度归零，属于中阶api，低阶api为手动对梯度更新后的parameter进行改变，其中@是pytorch中的矩阵乘法符号
+        #optimizer.zero_grad()  
         output = model(data,data_sol)
         #print(data.y.shape)
         loss = F.mse_loss(output, data.y)
-        loss_all += loss.item() * data.num_graphs #loss.item()获取loss张量中的值
+        loss_all += loss.item() * 
         optimizer.zero_grad() 
-        loss.backward()      #求梯度
+        loss.backward()      #
         #loss_all += loss.item() * data.num_graphs
         
-        optimizer.step()     #更新所有参数
+        optimizer.step()     
     return loss_all/len(train_loader.dataset)
 
 def test(model, loader, device, mean, std):
-    model.eval()   #不启用Batch Normalization和 Dropout，不改变权值
+    model.eval()   
     error = 0
     loss_all = 0
     model_output = []
@@ -69,13 +69,13 @@ def test(model, loader, device, mean, std):
         #loss = F.mse_loss(output, data.y)
         #loss = Loss(output, data.y)
        # rmse = np.sqrt(mean_squared_error(T_train,output))
-        error += (output * std - data.y * std).abs().sum().item()              # tensor.item() 只用在只有一个元素的tensor
-                                                                                   # tensor.detach() 从原来的计算图的张量中返回一个新的张量，不需要梯度
+        error += (output * std - data.y * std).abs().sum().item()             
+                                                                                 
         loss = F.mse_loss(output, data.y)
         #print('loss: ',loss.item())
         #print(output)
-        loss_all += loss.item() * data.num_graphs                           #   Returns a new Tensor, detached from the current graph. The result will never require gradient.
-        model_output.extend(output.tolist())                                       # tensor.tolist() 从张量中返回一个python列表，对应的值与它相同
+        loss_all += loss.item() * data.num_graphs                           #   
+        model_output.extend(output.tolist())                                    
         y.extend(data.y.tolist())
         #tags.extend(data.tag)
         #att_list.extend(att.tolist())
@@ -121,7 +121,7 @@ def training(Model, data_loaders, patience,n_epoch=100, snapshot_path='./snapsho
         start_time_1 = time.time()
         lr = scheduler.optimizer.param_groups[0]['lr']
         
-        train_loss = train(model, data_loaders['train'], device, optimizer)  #系数更新
+        train_loss = train(model, data_loaders['train'], device, optimizer) 
         train_loss, train_mae, train_output, y_train = test(model, data_loaders['train'], device, mean, std)
         valid_loss, valid_mae, valid_output, y_valid = test(model, data_loaders['valid'], device, mean, std)
 
@@ -154,7 +154,7 @@ def training(Model, data_loaders, patience,n_epoch=100, snapshot_path='./snapsho
         #if valid_mae < reports['valid loss']:
         if valid_r2 > reports['valid R2']:
             verify_dir_exists(snapshot_path)
-            torch.save(model.state_dict(), snapshot_path+'/ModelParams.pkl')  #储存r2最好的参数
+            torch.save(model.state_dict(), snapshot_path+'/ModelParams.pkl')  
             open(snapshot_path+'/model-{}_info.txt'.format(epoch), 'w').write('\n'.join(['Step:{}'.format(epoch), str(train_mae), str(train_loss), str(valid_mae), 
                                                                str(valid_loss), str(y_valid), str(valid_output),str(pearson)]))
             reports['valid mae'] = valid_mae
@@ -164,7 +164,7 @@ def training(Model, data_loaders, patience,n_epoch=100, snapshot_path='./snapsho
                 test_mae, test_loss, test_output, y_test = test(model, data_loaders['test'], device, mean, std)
                 open(snapshot_path+'/model-test-info.txt'.format(epoch), 'w').write('\n'.join([str(test_mae), str(y_test), str(test_output)]))
         
-        #定义早停
+
         if epoch < 2:
             valid_loss_pre = valid_loss
         else:
