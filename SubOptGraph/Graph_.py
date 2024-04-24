@@ -15,7 +15,7 @@ try:
     fdefName = os.path.join(RDConfig.RDDataDir,'BaseFeatures.fdef')
     factory = ChemicalFeatures.BuildFeatureFactory(fdefName)
 except:
-    fdefName = os.path.join('/home/xmpu215/anaconda3/envs/pytorch/share/RDKit/Data','BaseFeatures.fdef')  # 这里改成自己的路径
+    fdefName = os.path.join('path/pytorch/share/RDKit/Data','BaseFeatures.fdef')  # 
     factory = ChemicalFeatures.BuildFeatureFactory(fdefName)
 #possible_atom_type = ['H', 'B', 'C', 'N', 'O',  'F', 'Na','Si', 'P', 'S', 'Cl','Ar', 'K','Ge', 'Se', 'Br', 'Sn','Te', 'I', 'Cs',] 
 possible_atom_type = ['C', 'N','O','S','H','F','Na','Cl','Br','I','Se','Te','Si','P','B','Sn','Ge',] # for chemfluo absorption
@@ -62,7 +62,7 @@ def atom_featurizer(mol):
         except:
             atom_name = atom.GetSymbol() + str(idx)
         node_name.append(atom_name)
-    for idx in range(num_atoms):  #遍历mol中的每个原子
+    for idx in range(num_atoms):  #
         atom = mol.GetAtomWithIdx(idx)
         
         symbol = atom.GetSymbol()
@@ -78,13 +78,13 @@ def atom_featurizer(mol):
         of_formal_charges = one_of_k_encoding(formal_charge,of_formal_charge)
         atom_type += of_Hs
         atom_type += of_atoms
-        atom_type.append(is_aromatic) #是否芳香性
-        atom_type += hybridization # 杂化方式
+        atom_type.append(is_aromatic) #
+        atom_type += hybridization # 
         is_ring = int(atom.IsInRing())
-        atom_type.append(is_ring)  # 是否是在环中
+        atom_type.append(is_ring)  #
         atom_type += of_formal_charges
 
-        node_feats.append(atom_type)  #原子特征
+        node_feats.append(atom_type)  
     return np.array(node_feats, dtype=np.float32), node_name
 
 
