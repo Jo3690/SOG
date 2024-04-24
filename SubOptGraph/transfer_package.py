@@ -101,9 +101,6 @@ class TADF(InMemoryDataset):
         items = [line.strip().split('\t') for line in f]
         number = len(items)
 
-        
-        
-
         pbar = tqdm(total=number)
         pbar.set_description(f'Processing {self.split} dataset')
         data_list = []
