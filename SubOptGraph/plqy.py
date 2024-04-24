@@ -7,7 +7,7 @@ from core.train_helper import run
 from core.changed_model import GNNAsKernel
 from core.transform import SubgraphsTransform
 import random
-from math import log
+
 #from torch_geometric.datasets import ZINC
 from core.data import calculate_stats
 
