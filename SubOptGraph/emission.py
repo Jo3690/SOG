@@ -226,15 +226,15 @@ def create_dataset(cfg):
     root = './data/emission'  
     train_dataset = Emitter(root, subset=0, split='train', transform=transform,file_name='origin_emission.txt',percentage=0.80)
     val_dataset = Emitter(root, subset=0, split='val', transform=transform_eval,file_name='origin_emission.txt',percentage=0.80) 
-    test_dataset = Emitter(root, subset=0, split='test', transform=transform_eval,file_name='origin_emission.txt',percentage=0.80)   
+   # test_dataset = Emitter(root, subset=0, split='test', transform=transform_eval,file_name='origin_emission.txt',percentage=0.80)   
 
     train_dataset = [x for x in train_dataset] 
     val_dataset = [x for x in val_dataset] 
-    test_dataset = [x for x in test_dataset] 
+   # test_dataset = [x for x in test_dataset] 
 
 
 
-    return train_dataset, val_dataset, test_dataset
+    return train_dataset, val_dataset
 
 def create_model(cfg):
     model = GNNAsKernel(nfeat_node=37, nfeat_edge=6,
