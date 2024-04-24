@@ -31,10 +31,10 @@ try:
     fdefName = os.path.join(RDConfig.RDDataDir,'BaseFeatures.fdef')
     factory = ChemicalFeatures.BuildFeatureFactory(fdefName)
 except:
-    fdefName = os.path.join('/home/xmpu215/anaconda3/envs/pytorch/share/RDKit/Data','BaseFeatures.fdef')  # 这里改成自己的路径
+    fdefName = os.path.join('path/pytorch/share/RDKit/Data','BaseFeatures.fdef')  # 
     factory = ChemicalFeatures.BuildFeatureFactory(fdefName)
 #possible_atom_type = ['H', 'B', 'C', 'N', 'O',  'F', 'Na','Si', 'P', 'S', 'Cl','Ar', 'K','Ge', 'Se', 'Br', 'Sn','Te', 'I', 'Cs',] 
-possible_atom_type = ['C', 'N','O','S','H','F','Na','Cl','Br','I','Se','Te','Si','P','B','Sn','Ge',] # for chemfluo absorption
+possible_atom_type = ['C', 'N','O','S','H','F','Na','Cl','Br','I','Se','Te','Si','P','B','Sn','Ge',] #
 possible_hybridization = ['S','SP','SP2', 'SP3',  'SP3D','SP3D2','UNSPECIFIED'] # 'UNSPECIFIED'
 of_formal_charge = [-4,-3,-2,-1,0,1,2,3,4] #
 of_H = [0,1,2,3,4] #
@@ -96,7 +96,7 @@ class MyDataset(Dataset):
             except:
                 atom_name = atom.GetSymbol() + str(idx)
             node_name.append(atom_name)
-        for idx in range(num_atoms):  #遍历mol中的每个原子
+        for idx in range(num_atoms):  
             atom = mol.GetAtomWithIdx(idx)
             
             symbol = atom.GetSymbol()
@@ -112,13 +112,13 @@ class MyDataset(Dataset):
             of_formal_charges = one_of_k_encoding(formal_charge,of_formal_charge)
             atom_type += of_Hs
             atom_type += of_atoms
-            atom_type.append(is_aromatic) #是否芳香性
-            atom_type += hybridization # 杂化方式
+            atom_type.append(is_aromatic) #
+            atom_type += hybridization # 
             is_ring = int(atom.IsInRing())
-            atom_type.append(is_ring)  # 是否是在环中
+            atom_type.append(is_ring)  #
             atom_type += of_formal_charges
 
-            node_feats.append(atom_type)  #原子特征
+            node_feats.append(atom_type)  #
         return np.array(node_feats, dtype=np.float32)
 
     def bond_featurizer(self,mol):
@@ -177,7 +177,7 @@ class MyOpticalDataset(MyDataset):
 
     @property
     def raw_file_names(self):
-        # 通过self.raw_paths获取
+    
         return 'data.txt'
 
     @property
@@ -190,7 +190,7 @@ class MyOpticalDataset(MyDataset):
     
     @property
     def processed_file_names(self):
-        # 通过self.processed_paths获
+        # 
         return ['data_{}.pt'.format(self.name),'data_sol_{}.pt'.format(self.name),]
         
     @property
@@ -255,7 +255,7 @@ class MyOpticalDataset(MyDataset):
             data_list = [self.pre_transform(data) for data in data_list]
             data_sol_list = [self.pre_transform(data) for data in data_sol_list]
         
-        # 把所有的数据拼接成1个大数据
+    
         #data, slices = self.collate(data_list)
         loader_chro1 = Batch.from_data_list(data_list)
         loader_sol = Batch.from_data_list(data_sol_list)    
@@ -274,4 +274,4 @@ class MyOpticalDataset(MyDataset):
         
 if __name__ == '__main__':
     
-    load_dataset('/home/xmpu215/215/emission/GNNAK/GCN_data/abs','abs')
+    load_dataset('data/abs','abs')
