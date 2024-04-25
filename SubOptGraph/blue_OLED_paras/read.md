@@ -1,1 +1,1 @@
-Model parameters in this folder are used to predict the blue OLED emitter samples through transfer learning, so you can use them to predict the data in the SubOptGraph/data/OLED_data.xlsx.
+Model parameters in this folder are used to predict the blue OLED emitter samples through transfer learning, so you can use them to predict the data in the SubOptGraph/data/OLED_data.xlsx. While for PLQY and FWHM the hyperparameters for num_layers, mini_layers and mlp_layers are 5,3,2 and 5,3,3, respectively.
