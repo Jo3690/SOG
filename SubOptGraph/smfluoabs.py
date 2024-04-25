@@ -1,6 +1,5 @@
 import sys 
 sys.path.append("..")  
-#sys.path.append("../..")  
 import torch
 from core.config import cfg, update_cfg
 from core.train_helper import run 
