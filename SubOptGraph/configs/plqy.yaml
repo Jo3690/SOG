@@ -1,7 +1,7 @@
 dataset: plqy
 model:
-  num_layers: 3
-  mini_layers: 4
+  num_layers: 4
+  mini_layers: 3
   mlp_layers: 3
   embs: (0, 1, 2)
   embs_combine_mode: 'concat'
