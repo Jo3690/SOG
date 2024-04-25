@@ -1,4 +1,4 @@
-dataset: absorption
+dataset: abs
 model:
   num_layers: 5
   mini_layers: 3
