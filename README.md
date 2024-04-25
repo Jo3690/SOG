@@ -1,6 +1,6 @@
 SubOptGraph is a DL tool for accurately predicting optical properties of organic emitters constructed by the Pytorch 1.10 and trained on the Nvidia 4090 Ti.
 
-Your can use the model parameters in the checkpoint file based on the Deep4Chem dataset or train the model on your own.
+Your can use the model parameters in the folders based on the Deep4Chem dataset or train the model on your own.
 
 All the related data are listed in the 'SubOptGraph/data/'.
 
