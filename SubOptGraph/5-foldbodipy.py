@@ -233,7 +233,7 @@ def create_dataset(cfg):
                                         sampling_mode=None, 
                                         random_init=False)
 
-    root = './data/bodipy'  
+    root = './data/bodipy'  # change your own path of the data folder
     train_dataset = Emitter(root, subset=0, split='train', transform=transform,file_name='origin_absorption.txt',)
     val_dataset = Emitter(root, subset=0, split='val', transform=transform_eval,file_name='origin_absorption.txt',) 
 
