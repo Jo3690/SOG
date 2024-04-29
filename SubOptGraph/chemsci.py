@@ -23,7 +23,7 @@ from tqdm import tqdm
 from torch_geometric.data import (Data, InMemoryDataset, download_url,
                                   extract_zip)
 
-from Mol2Graph_back import Mol2Graph
+from Mol2Graph_chemsci import Mol2Graph
 from core.model_utils.elements import cal_des
 
 class emi(object):
