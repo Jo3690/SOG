@@ -14,7 +14,7 @@ try:
     fdefName = os.path.join(RDConfig.RDDataDir,'BaseFeatures.fdef')
     factory = ChemicalFeatures.BuildFeatureFactory(fdefName)
 except:
-    fdefName = os.path.join('/public/home/xmpu220/anaconda3/envs/pytorch/share/RDKit/Data','BaseFeatures.fdef')  # your own path
+    fdefName = os.path.join('/envs/pytorch/share/RDKit/Data','BaseFeatures.fdef')  # your own path
     factory = ChemicalFeatures.BuildFeatureFactory(fdefName)
 #possible_atom_type = ['H','Li', 'B', 'C', 'N', 'O',  'F', 'Na','Si', 'P', 'S', 'Cl', 'K','Ge', 'Se', 'Br', 'Sn','Te', 'I', 'Cs',] 
 possible_atom_type =  ['Pb', 'Cl', 'S', 'Pt', 'Cd', 'V', 'I', 'Cu', 'Fe', 'Si', 'Ge', 'Ru', 'C', 'Pr', 'B', 'Sn', 'P', 'Zn', 'Hg', 'Ce', 'Hf', 'Ni', 'Br', 'Na', 'Ar', 'Mo', 'Se', 'Zr', 'F', 'N', 'H', 'O', 'Gd','Ti','W']
