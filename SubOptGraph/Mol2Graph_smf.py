@@ -20,7 +20,7 @@ possible_hybridization = ['SP2', 'SP3', 'SP', 'S','SP3D','SP3D2', 'UNSPECIFIED']
 possible_bond_type = ['SINGLE','DOUBLE','TRIPLE','AROMATIC']
 PaulingElectroNegativity = {'H':2.20, 'Li':0.98, 'Be':1.57, 'B':2.04, 'C':2.55, 'N':3.04, 'O':3.44, 'F':3.98, 'Ge':2.01, 'Se':2.55,
                             'Na':0.93, 'Mg':1.31, 'Al':1.61, 'Si':1.90, 'P':2.19, 'S':2.58, 'Cl':3.16, 'Br':2.96, 'Sn':1.96,
-                            'I':2.66, 'K':0.82, 'Ca':1.00, 'As':2.18, 'Te':2.10,'K':0.82,'Cs':0.79, }        # from https:
+                            'I':2.66, 'K':0.82, 'Ca':1.00, 'As':2.18, 'Te':2.10,'K':0.82,'Cs':0.79, }   
 
 Vdw = {'H': 1.2, 'He': 1.4, 'Li': 2.2, 'Be': 1.9, 'B': 1.8, 'C': 1.7, 'N': 1.6, 'O': 1.55, 'F': 1.5,
        'Ne': 1.54, 'Na': 2.4, 'Mg': 2.2, 'Al': 2.1, 'Si': 2.1,'P': 1.95, 'S': 1.8, 'Cl': 1.8, 'Ar': 1.88,
