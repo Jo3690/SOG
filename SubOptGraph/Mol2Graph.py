@@ -5,8 +5,6 @@ from rdkit import Chem
 from rdkit.Chem import ChemicalFeatures
 from rdkit import RDConfig
 
-
-
 PeriodicTable = Chem.GetPeriodicTable()
 try:
     fdefName = os.path.join(RDConfig.RDDataDir,'BaseFeatures.fdef')
