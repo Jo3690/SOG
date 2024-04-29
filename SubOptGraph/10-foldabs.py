@@ -8,7 +8,6 @@ from core.changed_model import GNNAsKernel
 from core.transform import SubgraphsTransform
 import random
 
-#from torch_geometric.datasets import ZINC
 from core.data import calculate_stats
 
 import torch.nn.functional as F
