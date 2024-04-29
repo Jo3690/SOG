@@ -3,8 +3,6 @@ from rdkit import Chem
 from rdkit.Chem import Lipinski
 from rdkit.Chem import AllChem
 from rdkit.Chem import Descriptors, rdFreeSASA
-#import pybel
-#import openbabel as ob
 import numpy as np
 import math
 
@@ -31,5 +29,4 @@ def cal_des(mol):
     ar = FractionAromaticAtoms(mol)
     rb = RotatableBondNumber(mol)
     al,ar = RingsNums(mol)
-   # di = DipoleMoment(mol, charge_model='eem2015bm')
     return np.array([no,ar,rb,al,ar])
