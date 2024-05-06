@@ -1,6 +1,5 @@
 import sys 
 sys.path.append("..")  
-#sys.path.append("../..")  
 import torch
 from core.config import cfg, update_cfg
 from core.train_helper import run 
@@ -8,7 +7,6 @@ from core.changed_model import GNNAsKernel
 from core.transform import SubgraphsTransform
 import random
 
-#from torch_geometric.datasets import ZINC
 from core.data import calculate_stats
 
 import torch.nn.functional as F
