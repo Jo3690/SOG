@@ -9,7 +9,6 @@ from collections import defaultdict
 import numpy as np
 #import xlrd
 import pandas as pd
-from math import log
 from multiprocessing import Pool
 from tqdm import tqdm
 #from utils import Complete, angle, area_triangle, cal_dist
@@ -223,17 +222,16 @@ class MyOpticalDataset(MyDataset):
 
         data_list = []
         data_sol_list = []
-        #Y = np.array([float(i[2]) for i in items])
-        Y = np.array([log(float(i[2])+0.00001) for i in items])
+        
+        Y = np.array([float(i[2]) for i in items])
         std = Y.std()
         mean = Y.mean()   
         for i in range(len(items)):
             print("process:{}".format(i))
             smi = items[i][0]
             smi_sol = items[i][1]
-            #e_max = sheet_plqy.row_values(row)[3]
-            y = log(float(items[i][2])+0.00001)
-            #y = np.asarray(float(items[i][2]))
+            
+            y = np.asarray(float(items[i][2]))
             y = (y-mean)/std
             
             mol = Chem.MolFromSmiles(smi)
