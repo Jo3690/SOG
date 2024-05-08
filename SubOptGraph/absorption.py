@@ -113,8 +113,6 @@ class Emitter(InMemoryDataset):
             std = Y.std()
             mean = Y.mean()   
             for idx in range(number):
-                if items[idx][1] == 'gas':
-                    items[idx][1] = items[idx][0]
                 mol1 = Chem.MolFromSmiles(items[idx][0])
                 mol2 = Chem.MolFromSmiles(items[idx][1])        
                 mol1 = Chem.AddHs(mol1)
