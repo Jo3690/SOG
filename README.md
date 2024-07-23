@@ -25,10 +25,10 @@ python -m absorption.py model.num_layers 5 model.mini_layers 3 train.epochs 100
 
 You can also change the hyperparameters by yourself according to the instructions in "core/config.py"
 
-absorption.py; emission.py; fwhm.py; plqy.py. These four are used for Deep4Chem dataset
-
 
 __3.  Files__
+
+absorption.py; emission.py; fwhm.py; plqy.py. These four are used for Deep4Chem dataset
 
 10-foldchemabs.py; 10-foldchememi.py; 10-foldchemplqy.py. These three are used for ChemFluor dataset.
 
