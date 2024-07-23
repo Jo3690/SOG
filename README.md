@@ -1,12 +1,14 @@
 SubOptGraph is a deep learning framework for accurately predicting optical properties of organic emitters constructed by the Pytorch 1.10.
+
 Requirements:
-Python 3.7.3
 
-Pytorch 1.10.0
+Python    3.7.3
 
-RDKit 2020.03.3
+Pytorch    1.10.0
 
-torch_geometric 2.2.0
+RDKit    2020.03.3
+
+torch_geometric    2.2.0
 
 Scikit-learn
 
