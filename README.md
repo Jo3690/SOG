@@ -55,10 +55,12 @@ After putting the data file such as 'origin_absoption.txt' into "SubOptGraph/dat
 
 
 __5. Code and hyperparameters__
-The codes for node-centered mpnn, edge-centered mpnn, and subgraph mpnn are placed in "core/" folder.
+
+The codes for node-centered mpnn, edge-centered mpnn, subgraph mpnn, and data training are placed in "core/" folder.
+
+The codes for model training and testing are placed in "SubOptGraph" folder.
 
 "SubOptGraph/configs/*.yaml" are used for model hyperparameters. 
 
-The model parameters are listed in SubOptGraph/Model_paras/ and SubOptGraph/blue_OLED_paras/ folders. You can load them to make predictions with "test.py"
-
+The model parameters are listed in "SubOptGraph/Model_paras/" and "SubOptGraph/blue_OLED_paras/" folders. You can load them to make predictions with "test.py"
 
