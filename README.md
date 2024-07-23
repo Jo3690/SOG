@@ -1,6 +1,6 @@
 SubOptGraph is a deep learning framework for accurately predicting optical properties of organic emitters constructed by the Pytorch 1.10.
 
-Requirements:
+1.  Requirements:
 
 Python    3.7.3
 
@@ -12,7 +12,9 @@ torch_geometric    2.2.0
 
 Scikit-learn
 
-Usage:
+
+
+2.  Usage:
 
 Some changes for the source code of the torch_geomeric package are included in the SubOptGraph/collate.py and SubOptGraph/data.py. In order to conduct the edge-centered message passing fluently, you need to replace these two files after installing torch_geometric package. And you need to change all the directory mentioned in the scripts (i.e., "SubOptGraph/*.py") into your own path.
 
@@ -25,6 +27,10 @@ python -m absorption.py model.num_layers 5 model.mini_layers 3 train.epochs 100
 You can also change the hyperparameters by yourself according to the instructions in "core/config.py"
 
 absorption.py; emission.py; fwhm.py; plqy.py. These four are used for Deep4Chem dataset
+
+
+
+3.  Files
 
 10-foldchemabs.py; 10-foldchememi.py; 10-foldchemplqy.py. These three are used for ChemFluor dataset.
 
