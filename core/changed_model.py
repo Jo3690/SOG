@@ -4,7 +4,6 @@ import torch.nn.functional as F
 from torch_scatter import scatter
 import core.model_utils.pyg_gnn_wrapper as gnn_wrapper 
 from core.model_utils.elements import MLP, DiscreteEncoder, Identity, VNUpdate
-from core.model_utils.ppgn import PPGN
 from torch_geometric.nn.inits import reset
 from torch_geometric.nn.aggr import AttentionalAggregation
 from core.model_utils.elements import globalconv,GlobalTransfer
@@ -67,10 +66,7 @@ class SubgraphGNNKernel(nn.Module):
         self.hop_embedder = nn.Embedding(20, hop_dim)
         self.gnns = nn.ModuleList()
         for gnn_type in gnn_types:
-            if gnn_type == 'PPGN':
-                gnn = PPGN(nin+hop_dim if use_hops else nin, nhid, nlayer)
-            else:
-                gnn = GNN(nin+hop_dim if use_hops else nin, nhid, nlayer, gnn_type, dropout=dropout, res=res)  
+            gnn = GNN(nin+hop_dim if use_hops else nin, nhid, nlayer, gnn_type, dropout=dropout, res=res)  
             self.gnns.append(gnn)
         self.subgraph_transform = MLP(nout, nout, nlayer=mlp_layers, with_final_activation=True)
         self.context_transform =  MLP(nout, nout, nlayer=mlp_layers, with_final_activation=True)
